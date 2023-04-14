@@ -1,7 +1,6 @@
 window.onload = updateGrid(16)
 
 function updateGrid(gridSize) {
-    gridSize = 16;
     const gridContainer = document.querySelector(".grid-container");
     for (let i = 0; i < gridSize; i++) {
         const gridRow = document.createElement("div");
@@ -11,10 +10,10 @@ function updateGrid(gridSize) {
             gridItem.classList.add("grid-item");
             gridRow.appendChild(gridItem);
     
-            gridItem.style.backgroundColor = "#c4c4c4"
+            gridItem.style.backgroundColor = "#d8d8d8"
             gridItem.style.border = "solid"
             gridItem.style.borderWidth = "1px"
-            gridItem.style.borderColor = "#d8d8d8"
+            gridItem.style.borderColor = "#c4c4c4"
             gridItem.style.aspectRatio = "1 / 1"
         }
         gridContainer.appendChild(gridRow);
