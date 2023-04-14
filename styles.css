@@ -10,10 +10,10 @@ body {
     display: flex;
     padding: 0;
     margin: 0;
-    min-height: 600px;
-    max-height: 600px;
-    min-width: 600px;
-    max-width: 600px;
+    min-height: inherit;
+    max-height: inherit;
+    min-width: inherit;
+    max-width: inherit;
     border-width: 1px;
     border-style: solid;
     border-color: rgba(190, 22, 22, 0.596);
@@ -28,4 +28,5 @@ body {
     max-width: 600px;
     background-color: rgb(190, 22, 22);
     padding: 48px;
+    border-radius: 5%;
 }
