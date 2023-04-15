@@ -19,8 +19,7 @@ function updateGridSize(gridSize) {
         gridContainer.appendChild(gridRow);
         gridRow.style.flex = "1 1 auto"
     }
-    const rgb = document.querySelector(".rgb");
-    updateGridColor(rgb.value);
+    useCurrentColor();
 }
 
 function removeGrid() {
@@ -76,15 +75,17 @@ function setRandomColor() {
     return randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
 }
 
+function useCurrentColor() {
+    const rgb = document.querySelector(".rgb");
+    updateGridColor(rgb.value);
+    rgb.oninput = () => {
+        updateGridColor(rgb.value);
+    }
+}
+
 const slider = document.querySelector(".slider");
 const sliderText = document.querySelector(".slider-text");
 slider.oninput = () => {
     sliderText.textContent = `${slider.value}x${slider.value}`;
     updateGridSize(slider.value);
-}
-
-const rgb = document.querySelector(".rgb");
-
-rgb.oninput = () => {
-    updateGridColor(rgb.value);
 }
