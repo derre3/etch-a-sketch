@@ -53,10 +53,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-color: #881111;
+    border-width: 3px;
 }
 
-.button.color,
-.button.rainbow {
+.button.rainbow,
+.button.eraser {
     height: 17px;
     border-radius: 15%;
 }
