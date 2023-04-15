@@ -27,7 +27,7 @@ body {
     max-height: 600px;
     min-width: 600px;
     max-width: 600px;
-    background-color: rgb(190, 22, 22);
+    background-color: #be1616;
     padding: 75px 50px 50px;
     border-radius: 5%;
     gap: 15px;
@@ -36,17 +36,20 @@ body {
 .buttons-container {
     display: flex;
     flex: none;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     margin-top: 5px;
+    margin-right: 12%;
+    gap: 60px;
+
 }
 .button {
     margin: 0;
     padding: 0;
     width: 65px;
-    height: 34px;
-    border-radius: 30%;
-    background-color: white;
+    height: 40px;
+    border-radius: 45%;
+    background-color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,4 +59,51 @@ body {
 .button.rainbow {
     height: 17px;
     border-radius: 15%;
+}
+
+.slider {
+  -webkit-appearance: none;  
+}
+
+.slider::-webkit-slider-runnable-track {
+    width: 300px;
+    height: 8px;
+    background: #d8d8d8;
+    border-style: none;
+    border-radius: 25px;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 22px;
+    border-radius: 40%;
+    border-style: solid;
+    border-color: #a81a1a;
+    background: #be1616;
+    margin-top: -4px;
+}
+
+.slider:focus {
+    outline: none;
+}
+
+.slider-text {
+    color: white;
+    font-size: 18px;
+}
+
+.slider-container {
+    width: 25%;
+    border-style: solid;
+    border-color: #a81a1a;
+    border-width: 3px;
+}
+
+.rgb {
+    margin: 0;
+    padding: 0;
+    width: 65px;
+    height: 20px;
 }

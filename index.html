@@ -13,12 +13,20 @@
     <div class="sketch-pad">
         <div class="grid-container"></div>
         <div class="buttons-container">
-            <div class="button size">size</div>
-            <button onclick="cleanGrid()" class="button erase">clean</button>
-            <div class="color-container">
-                <button onclick="useColor()" class="button color">color</div>
-                <button onclick="useEraser()" class="button rainbow">eraser</div>
+            <div class="slider-container">
+                <div class="slider-text">16x16</div>
+                <input type="range" min="4" max="64" step="4" value="16" class="slider">
             </div>
+            <button onclick="cleanGrid()" class="button erase">Clean</button>
+            <div class="color-container">
+                <div class="rgb-container">
+                    <input type="color" value="#000000" class="rgb">
+                </div>
+                <div>
+                    <button onclick="useRainbow()" class="button color">Rainbow</div>
+                    <button onclick="useEraser()" class="button rainbow">Eraser</div>
+                </div>    
+                </div>
         </div>
     </div>
 </body>

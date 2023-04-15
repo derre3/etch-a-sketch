@@ -19,7 +19,8 @@ function updateGridSize(gridSize) {
         gridContainer.appendChild(gridRow);
         gridRow.style.flex = "1 1 auto"
     }
-    useColor();
+    const rgb = document.querySelector(".rgb");
+    updateGridColor(rgb.value);
 }
 
 function removeGrid() {
@@ -33,12 +34,12 @@ function removeGrid() {
     }
 }
 
-function useColor() {
+function useRainbow() {
     const gridItem = document.querySelectorAll(".grid-item");
     for (let i = 0; i < gridItem.length; i++) {
         gridItem[i].addEventListener('mouseover', ()=> {
-            gridItem[i].style.backgroundColor = "#000000";
-            gridItem[i].style.borderColor = "#333333";
+            gridItem[i].style.backgroundColor = setRandomColor();
+            gridItem[i].style.borderColor = "#6363633b";
         })
     }
 }
@@ -66,7 +67,24 @@ function updateGridColor(color) {
     for (let i = 0; i < gridItem.length; i++) {
         gridItem[i].addEventListener('mouseover', ()=> {
             gridItem[i].style.backgroundColor = color;
-            gridItem[i].style.borderColor = "#333333";
+            gridItem[i].style.borderColor = "#6363633b";
         })
     }
+}
+
+function setRandomColor() {
+    return randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+}
+
+const slider = document.querySelector(".slider");
+const sliderText = document.querySelector(".slider-text");
+slider.oninput = () => {
+    sliderText.textContent = `${slider.value}x${slider.value}`;
+    updateGridSize(slider.value);
+}
+
+const rgb = document.querySelector(".rgb");
+
+rgb.oninput = () => {
+    updateGridColor(rgb.value);
 }
