@@ -9,11 +9,6 @@ body {
     background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(148,148,148,1) 33%);
 }
 
-.h1-title {
-  margin-top: 10px;
-  font-size: 30px;
-}
-
 .grid-container {
     display: flex;
     padding: 0;
