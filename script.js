@@ -1,43 +1,57 @@
+// load standard grid size of 16x16 on page load
 window.onload = updateGridSize(16)
 
+
+// remove current grid then generate a new one with the desired size
 function updateGridSize(gridSize) {
     removeGrid();
     const gridContainer = document.querySelector(".grid-container");
+    // column generation
     for (let i = 0; i < gridSize; i++) {
-        const gridRow = document.createElement("div");
-        gridRow.classList.add("grid-row");
+        const gridColumn = document.createElement("div");
+        gridColumn.classList.add("grid-column");
+        // tile generation and styling
         for (let j = 0; j < gridSize; j++) {
             const gridItem = document.createElement("div");
             gridItem.classList.add("grid-item");
-            gridRow.appendChild(gridItem);
+            gridColumn.appendChild(gridItem);
             gridItem.style.backgroundColor = "#d8d8d8";
             gridItem.style.border = "solid";
             gridItem.style.borderWidth = "1px";
             gridItem.style.borderColor = "#c4c4c4";
             gridItem.style.aspectRatio = "1 / 1";
         }
-        gridContainer.appendChild(gridRow);
-        gridRow.style.flex = "1 1 auto"
+        gridContainer.appendChild(gridColumn);
+        gridColumn.style.flex = "1 1 auto"
     }
+    // function is used to keep the same tile paint after changing grid size
     useCurrentColor();
 }
 
 function removeGrid() {
     const gridItem = document.querySelectorAll(".grid-item");
-    const gridRow = document.querySelectorAll(".grid-row");
-    for (let i = 0; i < gridRow.length; i++) {
+    const gridColumn = document.querySelectorAll(".grid-column");
+    for (let i = 0; i < gridColumn.length; i++) {
         for (let j = 0; j < gridItem.length; j++) {
             gridItem[j].remove();
         }
-        gridRow[i].remove();
+        gridColumn[i].remove();
     }
 }
 
-function useRainbow() {
+function useCurrentColor() {
+    const rgb = document.querySelector(".rgb");
+    updateGridColor(rgb.value);
+    rgb.oninput = () => {
+        updateGridColor(rgb.value);
+    }
+}
+
+function useRainbowColor() {
     const gridItem = document.querySelectorAll(".grid-item");
     for (let i = 0; i < gridItem.length; i++) {
         gridItem[i].addEventListener('mouseover', ()=> {
-            gridItem[i].style.backgroundColor = setRandomColor();
+            gridItem[i].style.backgroundColor = setRainbowColor();
             gridItem[i].style.borderColor = "#6363633b";
         })
     }
@@ -71,18 +85,11 @@ function updateGridColor(color) {
     }
 }
 
-function setRandomColor() {
+function setRainbowColor() {
     return randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
 }
 
-function useCurrentColor() {
-    const rgb = document.querySelector(".rgb");
-    updateGridColor(rgb.value);
-    rgb.oninput = () => {
-        updateGridColor(rgb.value);
-    }
-}
-
+// Grid size slider
 const slider = document.querySelector(".slider");
 const sliderText = document.querySelector(".slider-text");
 slider.oninput = () => {
