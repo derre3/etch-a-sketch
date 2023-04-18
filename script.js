@@ -67,7 +67,7 @@ function useEraser() {
     }
 }
 
-function cleanGrid() {
+function clearGrid() {
     const gridItem = document.querySelectorAll(".grid-item");
     for (let i = 0; i < gridItem.length; i++) {
         gridItem[i].style.backgroundColor = "#d8d8d8";
